@@ -1,14 +1,11 @@
 <?php
 
+require_once 'Task.php';
 require 'functions.php';
-require 'classes.php';
 
-$greeting = "BONJOUUUUUR";
+$pdo = connectToDb();
+$tasks = fetchAllTasks($pdo);
 
-$tasks = [
-    new Task('Go to the store'),
-    new Task('Finish my screencast'),
-    new Task('Clean my room')
-];
+var_dump($tasks[0]->foobar());
 
 require 'index.view.php';
