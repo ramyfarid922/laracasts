@@ -1,11 +1,9 @@
 <?php
 
+$query = require 'bootstrap.php';
 require_once 'Task.php';
 require 'functions.php';
 
-$pdo = connectToDb();
-$tasks = fetchAllTasks($pdo);
-
-var_dump($tasks[0]->foobar());
+$tasks = $query->selectAll('todos', 'Task');
 
 require 'index.view.php';
